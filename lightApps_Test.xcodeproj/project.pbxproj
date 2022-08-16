@@ -15,6 +15,7 @@
 		CA033DB228AA5BE30046B2A9 /* SpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA033DB128AA5BE30046B2A9 /* SpeedViewController.swift */; };
 		CA033DB428AA701E0046B2A9 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA033DB328AA701E0046B2A9 /* CircleView.swift */; };
 		CA033DBA28AAE9450046B2A9 /* EmptyCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA033DB928AAE9450046B2A9 /* EmptyCircleView.swift */; };
+		CA69E7CC28AC3F91008FC55F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA69E7CB28AC3F91008FC55F /* Roboto-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CA033DB128AA5BE30046B2A9 /* SpeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedViewController.swift; sourceTree = "<group>"; };
 		CA033DB328AA701E0046B2A9 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		CA033DB928AAE9450046B2A9 /* EmptyCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCircleView.swift; sourceTree = "<group>"; };
+		CA69E7CB28AC3F91008FC55F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +66,8 @@
 				CA033D9F28AA57F20046B2A9 /* SceneDelegate.swift */,
 				CA033DB528AA9EE40046B2A9 /* Screens */,
 				CA033DB628AA9EEC0046B2A9 /* Custom Views */,
-				CA033DA628AA57F20046B2A9 /* Assets.xcassets */,
-				CA033DA828AA57F20046B2A9 /* LaunchScreen.storyboard */,
-				CA033DAB28AA57F20046B2A9 /* Info.plist */,
+				CA69E7C828AC3F5E008FC55F /* Fonts */,
+				CA69E7C728AC3F20008FC55F /* Resources */,
 			);
 			path = lightApps_Test;
 			sourceTree = "<group>";
@@ -87,6 +88,24 @@
 				CA033DB928AAE9450046B2A9 /* EmptyCircleView.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		CA69E7C728AC3F20008FC55F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA033DA628AA57F20046B2A9 /* Assets.xcassets */,
+				CA033DA828AA57F20046B2A9 /* LaunchScreen.storyboard */,
+				CA033DAB28AA57F20046B2A9 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CA69E7C828AC3F5E008FC55F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CA69E7CB28AC3F91008FC55F /* Roboto-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA69E7CC28AC3F91008FC55F /* Roboto-Regular.ttf in Resources */,
 				CA033DAA28AA57F20046B2A9 /* LaunchScreen.storyboard in Resources */,
 				CA033DA728AA57F20046B2A9 /* Assets.xcassets in Resources */,
 			);
@@ -305,9 +325,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TZALL639VQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = lightApps_Test/Info.plist;
+				INFOPLIST_FILE = lightApps_Test/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -332,9 +353,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TZALL639VQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = lightApps_Test/Info.plist;
+				INFOPLIST_FILE = lightApps_Test/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

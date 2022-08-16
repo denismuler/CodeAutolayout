@@ -23,10 +23,13 @@ class CleanerViewController: UIViewController {
         
         gradient.frame = view.bounds
         view.layer.addSublayer(gradient)
+        assignbackground()
         
         configureNavButton()
         configureCircleButton()
         configureEmptyCircleButton()
+        
+      
     }
     
     lazy var gradient: CAGradientLayer = {
@@ -111,9 +114,32 @@ class CleanerViewController: UIViewController {
         ])
         
     }
+    
     @objc func didTapButton() {
         let speedVC = SpeedViewController()
         navigationController?.pushViewController(speedVC, animated: true)        
+    }
+    
+    func assignbackground() {
+            let background = UIImage(named: "bubbles.png")
+
+            var imageView : UIImageView!
+            imageView = UIImageView(frame: view.bounds)
+            imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+            imageView.clipsToBounds = true
+            imageView.image = background
+            imageView.center = view.center
+            view.addSubview(imageView)
+        
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 35),
+            imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
+        ])
+
     }
 }
 
