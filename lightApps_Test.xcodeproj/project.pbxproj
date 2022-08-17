@@ -16,6 +16,14 @@
 		CA033DB428AA701E0046B2A9 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA033DB328AA701E0046B2A9 /* CircleView.swift */; };
 		CA033DBA28AAE9450046B2A9 /* EmptyCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA033DB928AAE9450046B2A9 /* EmptyCircleView.swift */; };
 		CA69E7CC28AC3F91008FC55F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA69E7CB28AC3F91008FC55F /* Roboto-Regular.ttf */; };
+		CAAFDB2528AD5F4200AA0FF9 /* PhotosCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFDB2428AD5F4200AA0FF9 /* PhotosCircleView.swift */; };
+		CAAFDB2928AD5F9F00AA0FF9 /* ScreenshotsCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFDB2828AD5F9F00AA0FF9 /* ScreenshotsCircleView.swift */; };
+		CAAFDB2B28AD5FAF00AA0FF9 /* ContactsCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFDB2A28AD5FAF00AA0FF9 /* ContactsCircleView.swift */; };
+		CAAFDB2E28AD797400AA0FF9 /* PhotosEmptyCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFDB2D28AD797400AA0FF9 /* PhotosEmptyCircleView.swift */; };
+		CAAFDB3028AD798500AA0FF9 /* StorageEmptyCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFDB2F28AD798500AA0FF9 /* StorageEmptyCircleView.swift */; };
+		CAAFDB3228AD799600AA0FF9 /* VideosEmptyCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFDB3128AD799600AA0FF9 /* VideosEmptyCircleView.swift */; };
+		CAAFDB3428AD812800AA0FF9 /* LargeCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFDB3328AD812800AA0FF9 /* LargeCircleView.swift */; };
+		CAB4F33E28AD5A0500F04885 /* CircleTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4F33D28AD5A0500F04885 /* CircleTextLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +38,14 @@
 		CA033DB328AA701E0046B2A9 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		CA033DB928AAE9450046B2A9 /* EmptyCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCircleView.swift; sourceTree = "<group>"; };
 		CA69E7CB28AC3F91008FC55F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		CAAFDB2428AD5F4200AA0FF9 /* PhotosCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCircleView.swift; sourceTree = "<group>"; };
+		CAAFDB2828AD5F9F00AA0FF9 /* ScreenshotsCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsCircleView.swift; sourceTree = "<group>"; };
+		CAAFDB2A28AD5FAF00AA0FF9 /* ContactsCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCircleView.swift; sourceTree = "<group>"; };
+		CAAFDB2D28AD797400AA0FF9 /* PhotosEmptyCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosEmptyCircleView.swift; sourceTree = "<group>"; };
+		CAAFDB2F28AD798500AA0FF9 /* StorageEmptyCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageEmptyCircleView.swift; sourceTree = "<group>"; };
+		CAAFDB3128AD799600AA0FF9 /* VideosEmptyCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosEmptyCircleView.swift; sourceTree = "<group>"; };
+		CAAFDB3328AD812800AA0FF9 /* LargeCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCircleView.swift; sourceTree = "<group>"; };
+		CAB4F33D28AD5A0500F04885 /* CircleTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTextLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +100,10 @@
 		CA033DB628AA9EEC0046B2A9 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				CA033DB328AA701E0046B2A9 /* CircleView.swift */,
-				CA033DB928AAE9450046B2A9 /* EmptyCircleView.swift */,
+				CAAFDB2628AD5F5800AA0FF9 /* Circle */,
+				CAAFDB2C28AD74D100AA0FF9 /* Large Circle */,
+				CAAFDB2728AD5F6500AA0FF9 /* Empty Circle */,
+				CAB4F33D28AD5A0500F04885 /* CircleTextLabel.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -106,6 +124,36 @@
 				CA69E7CB28AC3F91008FC55F /* Roboto-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CAAFDB2628AD5F5800AA0FF9 /* Circle */ = {
+			isa = PBXGroup;
+			children = (
+				CA033DB328AA701E0046B2A9 /* CircleView.swift */,
+				CAAFDB2428AD5F4200AA0FF9 /* PhotosCircleView.swift */,
+				CAAFDB2828AD5F9F00AA0FF9 /* ScreenshotsCircleView.swift */,
+				CAAFDB2A28AD5FAF00AA0FF9 /* ContactsCircleView.swift */,
+			);
+			path = Circle;
+			sourceTree = "<group>";
+		};
+		CAAFDB2728AD5F6500AA0FF9 /* Empty Circle */ = {
+			isa = PBXGroup;
+			children = (
+				CA033DB928AAE9450046B2A9 /* EmptyCircleView.swift */,
+				CAAFDB2D28AD797400AA0FF9 /* PhotosEmptyCircleView.swift */,
+				CAAFDB2F28AD798500AA0FF9 /* StorageEmptyCircleView.swift */,
+				CAAFDB3128AD799600AA0FF9 /* VideosEmptyCircleView.swift */,
+			);
+			path = "Empty Circle";
+			sourceTree = "<group>";
+		};
+		CAAFDB2C28AD74D100AA0FF9 /* Large Circle */ = {
+			isa = PBXGroup;
+			children = (
+				CAAFDB3328AD812800AA0FF9 /* LargeCircleView.swift */,
+			);
+			path = "Large Circle";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,7 +228,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA033DB228AA5BE30046B2A9 /* SpeedViewController.swift in Sources */,
+				CAB4F33E28AD5A0500F04885 /* CircleTextLabel.swift in Sources */,
+				CAAFDB3428AD812800AA0FF9 /* LargeCircleView.swift in Sources */,
 				CA033DB428AA701E0046B2A9 /* CircleView.swift in Sources */,
+				CAAFDB2E28AD797400AA0FF9 /* PhotosEmptyCircleView.swift in Sources */,
+				CAAFDB3028AD798500AA0FF9 /* StorageEmptyCircleView.swift in Sources */,
+				CAAFDB2B28AD5FAF00AA0FF9 /* ContactsCircleView.swift in Sources */,
+				CAAFDB2528AD5F4200AA0FF9 /* PhotosCircleView.swift in Sources */,
+				CAAFDB2928AD5F9F00AA0FF9 /* ScreenshotsCircleView.swift in Sources */,
+				CAAFDB3228AD799600AA0FF9 /* VideosEmptyCircleView.swift in Sources */,
 				CA033DA228AA57F20046B2A9 /* CleanerViewController.swift in Sources */,
 				CA033D9E28AA57F20046B2A9 /* AppDelegate.swift in Sources */,
 				CA033DBA28AAE9450046B2A9 /* EmptyCircleView.swift in Sources */,

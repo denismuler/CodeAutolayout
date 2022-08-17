@@ -11,12 +11,13 @@ class CleanerViewController: UIViewController {
     
     let button = UIButton()
     
-    let circle = CircleView()
-    let circle1 = CircleView()
-    let circle2 = CircleView()
-    let emptyCircle = EmptyCircleView()
-    let emptyCircle2 = EmptyCircleView()
-    let emptyCircle3 = EmptyCircleView()
+    let circle = PhotosCircleView()
+    let circle2 = ScreenshotsCircleView()
+    let circle3 = ContactsCircleView()
+    let emptyCircle = PhotosEmptyCircleView()
+    let emptyCircle2 = StorageEmptyCircleView()
+    let emptyCircle3 = VideosEmptyCircleView()
+    let largeCircle = LargeCircleView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,7 @@ class CleanerViewController: UIViewController {
         configureNavButton()
         configureCircleButton()
         configureEmptyCircleButton()
-        
-      
+        configureLargeCircle()
     }
     
     lazy var gradient: CAGradientLayer = {
@@ -60,24 +60,24 @@ class CleanerViewController: UIViewController {
             circle.heightAnchor.constraint(equalToConstant: 111)
         ])
         
-        view.addSubview(circle1)
-        circle1.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            circle1.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -255),
-            circle1.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            circle1.widthAnchor.constraint(equalToConstant: 111),
-            circle1.heightAnchor.constraint(equalToConstant: 111)
-        ])
-        
         view.addSubview(circle2)
         circle2.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            circle2.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -207),
-            circle2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -11),
+            circle2.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -255),
+            circle2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             circle2.widthAnchor.constraint(equalToConstant: 111),
             circle2.heightAnchor.constraint(equalToConstant: 111)
+        ])
+        
+        view.addSubview(circle3)
+        circle3.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            circle3.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -207),
+            circle3.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -11),
+            circle3.widthAnchor.constraint(equalToConstant: 111),
+            circle3.heightAnchor.constraint(equalToConstant: 111)
         ])
     }
     
@@ -111,6 +111,23 @@ class CleanerViewController: UIViewController {
             emptyCircle3.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -53),
             emptyCircle3.widthAnchor.constraint(equalToConstant: 111),
             emptyCircle3.heightAnchor.constraint(equalToConstant: 111)
+        ])
+        
+    }
+    
+    func configureLargeCircle() {
+        view.addSubview(largeCircle)
+        largeCircle.translatesAutoresizingMaskIntoConstraints = false
+        let aspectRatio: CGFloat = 9 / 16
+//        largeCircle.heightAnchor.constraint(equalTo: view.widthAnchor,
+//                                         multiplier: aspectRatio).isActive
+        NSLayoutConstraint.activate([
+//            largeCircle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            largeCircle.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: aspectRatio),
+            largeCircle.topAnchor.constraint(equalTo: view.topAnchor, constant: 82),
+            largeCircle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 82),
+            largeCircle.heightAnchor.constraint(equalTo: view.widthAnchor,
+                                             multiplier: aspectRatio)
         ])
         
     }
