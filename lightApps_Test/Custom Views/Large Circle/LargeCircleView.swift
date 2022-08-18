@@ -8,18 +8,22 @@
 import UIKit
 
 class LargeCircleView: UIView {
-
+    
     var largeCircleView = UIView()
+    
     var percentageTitle = CircleTextLabel(textAlignment: .center, fontSize: 50)
     var storageTitle = CircleTextLabel(textAlignment: .center, fontSize: 18)
+    
     var statsLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
     var statsLabel2 = CircleTextLabel(textAlignment: .center, fontSize: 11)
     var statsLabel3 = CircleTextLabel(textAlignment: .center, fontSize: 11)
+    
     var statsResultsLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
     var statsResultsLabel2 = CircleTextLabel(textAlignment: .center, fontSize: 11)
     var statsResultsLabel3 = CircleTextLabel(textAlignment: .center, fontSize: 11)
     
-    
+    var flowHeightConstraint: NSLayoutConstraint?
+    var flowWidthConstraint: NSLayoutConstraint?
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -33,13 +37,19 @@ class LargeCircleView: UIView {
     private func configure() {
         
         largeCircleView = UIView (frame: CGRect(x: 0, y: 0, width: 199, height: 199))
-        largeCircleView.layer.cornerRadius = largeCircleView.frame.size.width/2 
+        largeCircleView.layer.cornerRadius = largeCircleView.frame.size.width/2
         largeCircleView.backgroundColor = UIColor(red: 117/255.0, green: 120/255.0, blue: 186/255.0, alpha: 0.7)
         largeCircleView.layer.borderWidth = 3
         largeCircleView.layer.borderColor = UIColor.white.cgColor
         
+//        flowHeightConstraint = largeCircleView.heightAnchor.constraint(equalToConstant: 199)
+//        flowWidthConstraint = largeCircleView.widthAnchor.constraint(equalToConstant: 199)
+//
+//        flowWidthConstraint?.isActive = true
+//        flowHeightConstraint?.isActive = true
+        
         self.addSubview(largeCircleView)
-
+        
         percentageTitle.text = "76%"
         percentageTitle.font = percentageTitle.font.withSize(50)
         percentageTitle.textColor = .white
@@ -55,7 +65,7 @@ class LargeCircleView: UIView {
         storageTitle.text = "Your Storage"
         storageTitle.font = storageTitle.font.withSize(18)
         storageTitle.textColor = .white
-
+        
         self.addSubview(storageTitle)
         
         NSLayoutConstraint.activate([
@@ -83,11 +93,10 @@ class LargeCircleView: UIView {
         statsLabel2.font = statsLabel.font.withSize(11)
         statsLabel2.textColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 1)
         self.addSubview(statsLabel2)
-
+        
         NSLayoutConstraint.activate([
             statsLabel2.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 135),
             statsLabel2.trailingAnchor.constraint(equalTo: largeCircleView.trailingAnchor, constant: -86)
-            
         ])
         
         statsLabel3.text = "Trash size:"
@@ -98,9 +107,9 @@ class LargeCircleView: UIView {
         NSLayoutConstraint.activate([
             statsLabel3.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 153),
             statsLabel3.trailingAnchor.constraint(equalTo: largeCircleView.trailingAnchor, constant: -86)
-            
         ])
     }
+    
     func configureStatsResultsLabels() {
         statsResultsLabel.text = "128 GB"
         statsResultsLabel.font = statsResultsLabel.font.withSize(11)
@@ -116,11 +125,10 @@ class LargeCircleView: UIView {
         statsResultsLabel2.font = statsResultsLabel2.font.withSize(11)
         statsResultsLabel2.textColor = .white
         self.addSubview(statsResultsLabel2)
-
+        
         NSLayoutConstraint.activate([
             statsResultsLabel2.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 135),
             statsResultsLabel2.leftAnchor.constraint(equalTo: statsLabel2.rightAnchor, constant: 1)
-
         ])
         
         statsResultsLabel3.text = "470 MB"
@@ -132,8 +140,5 @@ class LargeCircleView: UIView {
             statsResultsLabel3.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 153),
             statsResultsLabel3.leftAnchor.constraint(equalTo: statsLabel3.rightAnchor, constant: 1)
         ])
-
-
-        
     }
 }

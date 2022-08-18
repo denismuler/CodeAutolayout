@@ -31,6 +31,4 @@ class CircleTextLabel: UILabel {
         lineBreakMode = .byTruncatingTail
         translatesAutoresizingMaskIntoConstraints = false
     }
-    
-    
 }

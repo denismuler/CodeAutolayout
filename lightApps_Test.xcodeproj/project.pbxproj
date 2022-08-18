@@ -16,6 +16,7 @@
 		CA033DB428AA701E0046B2A9 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA033DB328AA701E0046B2A9 /* CircleView.swift */; };
 		CA033DBA28AAE9450046B2A9 /* EmptyCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA033DB928AAE9450046B2A9 /* EmptyCircleView.swift */; };
 		CA69E7CC28AC3F91008FC55F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA69E7CB28AC3F91008FC55F /* Roboto-Regular.ttf */; };
+		CAA2137928AE7465006EB1B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA2137828AE7465006EB1B2 /* Constants.swift */; };
 		CAAFDB2528AD5F4200AA0FF9 /* PhotosCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFDB2428AD5F4200AA0FF9 /* PhotosCircleView.swift */; };
 		CAAFDB2928AD5F9F00AA0FF9 /* ScreenshotsCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFDB2828AD5F9F00AA0FF9 /* ScreenshotsCircleView.swift */; };
 		CAAFDB2B28AD5FAF00AA0FF9 /* ContactsCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFDB2A28AD5FAF00AA0FF9 /* ContactsCircleView.swift */; };
@@ -38,6 +39,7 @@
 		CA033DB328AA701E0046B2A9 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		CA033DB928AAE9450046B2A9 /* EmptyCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCircleView.swift; sourceTree = "<group>"; };
 		CA69E7CB28AC3F91008FC55F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		CAA2137828AE7465006EB1B2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CAAFDB2428AD5F4200AA0FF9 /* PhotosCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCircleView.swift; sourceTree = "<group>"; };
 		CAAFDB2828AD5F9F00AA0FF9 /* ScreenshotsCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsCircleView.swift; sourceTree = "<group>"; };
 		CAAFDB2A28AD5FAF00AA0FF9 /* ContactsCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCircleView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				CA033D9D28AA57F20046B2A9 /* AppDelegate.swift */,
 				CA033D9F28AA57F20046B2A9 /* SceneDelegate.swift */,
+				CAA2137828AE7465006EB1B2 /* Constants.swift */,
 				CA033DB528AA9EE40046B2A9 /* Screens */,
 				CA033DB628AA9EEC0046B2A9 /* Custom Views */,
 				CA69E7C828AC3F5E008FC55F /* Fonts */,
@@ -232,6 +235,7 @@
 				CAAFDB3428AD812800AA0FF9 /* LargeCircleView.swift in Sources */,
 				CA033DB428AA701E0046B2A9 /* CircleView.swift in Sources */,
 				CAAFDB2E28AD797400AA0FF9 /* PhotosEmptyCircleView.swift in Sources */,
+				CAA2137928AE7465006EB1B2 /* Constants.swift in Sources */,
 				CAAFDB3028AD798500AA0FF9 /* StorageEmptyCircleView.swift in Sources */,
 				CAAFDB2B28AD5FAF00AA0FF9 /* ContactsCircleView.swift in Sources */,
 				CAAFDB2528AD5F4200AA0FF9 /* PhotosCircleView.swift in Sources */,

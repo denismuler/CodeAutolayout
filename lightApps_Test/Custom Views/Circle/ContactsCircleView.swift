@@ -32,6 +32,10 @@ class ContactsCircleView: CircleView {
             logoView.topAnchor.constraint(equalTo: circleView.topAnchor, constant: 7)
         ])
         
+        configureLabels()
+    }
+    
+    func configureLabels() {
         circleTitle.text = "Duplicate contacts"
         circleTitle.font = circleTitle.font.withSize(10)
         self.addSubview(circleTitle)
@@ -41,6 +45,32 @@ class ContactsCircleView: CircleView {
             circleTitle.topAnchor.constraint(equalTo: logoView.topAnchor, constant: 34),
             circleTitle.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 5)
         ])
+        
+        circleFilesTitle.text = "30 contacts"
+        circleFilesTitle.font = circleFilesTitle.font.withSize(13)
+        circleFilesTitle.textColor = .white
+        circleFilesTitle.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(circleFilesTitle)
+        
+        NSLayoutConstraint.activate([
+            circleFilesTitle.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+            circleFilesTitle.bottomAnchor.constraint(equalTo: circleView.bottomAnchor, constant: -20),
+            circleFilesTitle.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 17),
+            circleFilesTitle.trailingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: -20)
+        ])
+        
+        circleDuplicateTitle.text = "7 duplicate"
+        circleDuplicateTitle.font = circleDuplicateTitle.font.withSize(9)
+        circleDuplicateTitle.textColor = .black
+        circleDuplicateTitle.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(circleDuplicateTitle)
+        
+        NSLayoutConstraint.activate([
+            circleDuplicateTitle.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+            circleDuplicateTitle.topAnchor.constraint(equalTo: circleFilesTitle.bottomAnchor, constant: 1)
+        ])
+        
     }
-    
 }

@@ -49,7 +49,6 @@ class CleanerViewController: UIViewController {
     }
     
     func configureCircleButton() {
-        
         view.addSubview(circle)
         circle.translatesAutoresizingMaskIntoConstraints = false
         
@@ -82,7 +81,6 @@ class CleanerViewController: UIViewController {
     }
     
     func configureEmptyCircleButton() {
-        
         view.addSubview(emptyCircle)
         emptyCircle.translatesAutoresizingMaskIntoConstraints = false
         
@@ -118,18 +116,22 @@ class CleanerViewController: UIViewController {
     func configureLargeCircle() {
         view.addSubview(largeCircle)
         largeCircle.translatesAutoresizingMaskIntoConstraints = false
-        let aspectRatio: CGFloat = 9 / 16
-//        largeCircle.heightAnchor.constraint(equalTo: view.widthAnchor,
-//                                         multiplier: aspectRatio).isActive
+//        let aspectRatio: CGFloat = 9 / 16
+       
         NSLayoutConstraint.activate([
-//            largeCircle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            largeCircle.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: aspectRatio),
-            largeCircle.topAnchor.constraint(equalTo: view.topAnchor, constant: 82),
-            largeCircle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 82),
-            largeCircle.heightAnchor.constraint(equalTo: view.widthAnchor,
-                                             multiplier: aspectRatio)
+//            largeCircle.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: aspectRatio),
+//            largeCircle.topAnchor.constraint(equalTo: view.topAnchor, constant: 82),
+//            largeCircle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 82),
+//            largeCircle.heightAnchor.constraint(equalTo: view.widthAnchor,
+//                                                multiplier: aspectRatio)
+//            largeCircle.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            largeCircle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            largeCircle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 88),
+            largeCircle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -88),
+            largeCircle.bottomAnchor.constraint(equalTo: circle2.topAnchor, constant: -230)
+            
+            
         ])
-        
     }
     
     @objc func didTapButton() {
@@ -138,17 +140,17 @@ class CleanerViewController: UIViewController {
     }
     
     func assignbackground() {
-            let background = UIImage(named: "bubbles.png")
-
-            var imageView : UIImageView!
-            imageView = UIImageView(frame: view.bounds)
-            imageView.contentMode =  UIView.ContentMode.scaleAspectFill
-            imageView.clipsToBounds = true
-            imageView.image = background
-            imageView.center = view.center
-            view.addSubview(imageView)
+        let background = UIImage(named: "bubbles.png")
         
-            imageView.translatesAutoresizingMaskIntoConstraints = false
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -156,7 +158,7 @@ class CleanerViewController: UIViewController {
             imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
             imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
         ])
-
+        
     }
 }
 

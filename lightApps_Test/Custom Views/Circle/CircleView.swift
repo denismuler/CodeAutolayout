@@ -30,7 +30,6 @@ class CircleView: UIView {
         circleView = UIView (frame: CGRect(x: 0, y: 0, width: 111, height: 111))
         circleView.layer.cornerRadius = circleView.frame.size.width/2
         circleView.backgroundColor = .white
-        dropShadow()
         
         let frame = circleView.bounds
         
@@ -81,6 +80,8 @@ class CircleView: UIView {
             vectorView.bottomAnchor.constraint(equalTo: circleView.bottomAnchor, constant: -45),
             vectorView.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 55)
         ])
+        
+        dropShadow()
     }
     
     func dropShadow() {
@@ -88,5 +89,22 @@ class CircleView: UIView {
         circleView.layer.shadowOpacity = 0.5
         circleView.layer.shadowOffset = .zero
         circleView.layer.shadowRadius = 5
+        
+        let innerShadow = CALayer()
+        innerShadow.frame = circleView.bounds
+        let radius = circleView.frame.size.width/2
+        let path = UIBezierPath(roundedRect: innerShadow.bounds.insetBy(dx: 5, dy:5), cornerRadius:radius)
+        let cutout = UIBezierPath(roundedRect: innerShadow.bounds, cornerRadius:radius).reversing()
+        
+        path.append(cutout)
+        innerShadow.shadowPath = path.cgPath
+        innerShadow.masksToBounds = true
+        
+        innerShadow.shadowColor = UIColor.black.cgColor
+        innerShadow.shadowOffset = .zero
+        innerShadow.shadowOpacity = 0.3
+        innerShadow.shadowRadius = 5
+        innerShadow.cornerRadius = circleView.frame.size.width/2
+        self.layer.addSublayer(innerShadow)
     }
 }

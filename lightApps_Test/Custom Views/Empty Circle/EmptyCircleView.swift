@@ -11,6 +11,7 @@ class EmptyCircleView: UIView {
     
     var circleView = UIView()
     var logoView = UIImageView()
+    var circleLabel = CircleTextLabel(textAlignment: .center, fontSize: 13)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,18 +28,30 @@ class EmptyCircleView: UIView {
         circleView.backgroundColor = .white
         
         self.addSubview(circleView)
+        dropShadow()
+    }
+    
+    func dropShadow() {
+        circleView.layer.shadowColor = UIColor.black.cgColor
+        circleView.layer.shadowOpacity = 0.5
+        circleView.layer.shadowOffset = .zero
+        circleView.layer.shadowRadius = 5
         
-//        logoView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-//        logoView.image = UIImage(named: "allPhotos")
-//        logoView.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        self.addSubview(logoView)
-//        
-//        NSLayoutConstraint.activate([
-//            logoView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-//            logoView.bottomAnchor.constraint(equalTo: circleView.bottomAnchor, constant: -55),
-//            logoView.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 35),
-//            logoView.topAnchor.constraint(equalTo: circleView.topAnchor, constant: 16)
-//        ])
+        let innerShadow = CALayer()
+        innerShadow.frame = circleView.bounds
+        let radius = circleView.frame.size.width/2
+        let path = UIBezierPath(roundedRect: innerShadow.bounds.insetBy(dx: 5, dy:5), cornerRadius:radius)
+        let cutout = UIBezierPath(roundedRect: innerShadow.bounds, cornerRadius:radius).reversing()
+        
+        path.append(cutout)
+        innerShadow.shadowPath = path.cgPath
+        innerShadow.masksToBounds = true
+        
+        innerShadow.shadowColor = UIColor.black.cgColor
+        innerShadow.shadowOffset = .zero
+        innerShadow.shadowOpacity = 0.3
+        innerShadow.shadowRadius = 5
+        innerShadow.cornerRadius = circleView.frame.size.width/2
+        self.layer.addSublayer(innerShadow)
     }
 }
