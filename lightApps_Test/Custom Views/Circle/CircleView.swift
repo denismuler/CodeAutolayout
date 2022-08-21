@@ -18,7 +18,6 @@ class CircleView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configure()
     }
     
@@ -27,7 +26,7 @@ class CircleView: UIView {
     }
     
     private func configure() {
-        circleView = UIView (frame: CGRect(x: 0, y: 0, width: 111, height: 111))
+        circleView = UIView(frame: CGRect(x: 0, y: 0, width: 111, height: 111))
         circleView.layer.cornerRadius = circleView.frame.size.width/2
         circleView.backgroundColor = .white
         
@@ -40,7 +39,7 @@ class CircleView: UIView {
         
         let shapeLayer1 = CAShapeLayer()
         shapeLayer1.path = path1.cgPath
-        shapeLayer1.fillColor = UIColor(red: 117/255.0, green: 120/255.0, blue: 186/255.0, alpha: 1).cgColor
+        shapeLayer1.fillColor = UIColor(red: 117/255, green: 120/255, blue: 186/255, alpha: 1).cgColor
         
         let path2 = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2,
                                                     y: frame.size.height / 2),
@@ -51,7 +50,7 @@ class CircleView: UIView {
         
         let shapeLayer2 = CAShapeLayer()
         shapeLayer2.path = path2.cgPath
-        shapeLayer2.fillColor = UIColor(red: 117/255.0, green: 120/255.0, blue: 186/255.0, alpha: 1).cgColor
+        shapeLayer2.fillColor = UIColor(red: 117/255, green: 120/255, blue: 186/255, alpha: 1).cgColor
         
         let path3 = UIBezierPath(arcCenter: CGPoint(x: 55, y: 55),
                                  radius: frame.width / 6,
@@ -84,7 +83,7 @@ class CircleView: UIView {
         dropShadow()
     }
     
-    func dropShadow() {
+    private func dropShadow() {
         circleView.layer.shadowColor = UIColor.black.cgColor
         circleView.layer.shadowOpacity = 0.5
         circleView.layer.shadowOffset = .zero

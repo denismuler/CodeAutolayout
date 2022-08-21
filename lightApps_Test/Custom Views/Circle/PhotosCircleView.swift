@@ -7,11 +7,10 @@
 
 import UIKit
 
-class PhotosCircleView: CircleView {
+final class PhotosCircleView: CircleView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configure()
     }
     
@@ -24,8 +23,7 @@ class PhotosCircleView: CircleView {
         logoView.image = UIImage(named: "photos")
         logoView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(logoView)
-        
+        addSubview(logoView)
         NSLayoutConstraint.activate([
             logoView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             logoView.bottomAnchor.constraint(equalTo: circleView.bottomAnchor, constant: -70),
@@ -35,13 +33,12 @@ class PhotosCircleView: CircleView {
         configureLabels()
     }
     
-    func configureLabels() {
+    private func configureLabels() {
         circleTitle.text = "Duplicate photos"
         circleTitle.font = circleTitle.font.withSize(10)
         circleTitle.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(circleTitle)
-        
+        addSubview(circleTitle)
         NSLayoutConstraint.activate([
             circleTitle.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             circleTitle.topAnchor.constraint(equalTo: logoView.topAnchor, constant: 34),
@@ -53,8 +50,7 @@ class PhotosCircleView: CircleView {
         circleFilesTitle.textColor = .white
         circleFilesTitle.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(circleFilesTitle)
-        
+        addSubview(circleFilesTitle)
         NSLayoutConstraint.activate([
             circleFilesTitle.bottomAnchor.constraint(equalTo: circleView.bottomAnchor, constant: -20),
             circleFilesTitle.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 31),
@@ -66,8 +62,7 @@ class PhotosCircleView: CircleView {
         circleDuplicateTitle.textColor = .black
         circleDuplicateTitle.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(circleDuplicateTitle)
-        
+        addSubview(circleDuplicateTitle)
         NSLayoutConstraint.activate([
             circleDuplicateTitle.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             circleDuplicateTitle.topAnchor.constraint(equalTo: circleFilesTitle.bottomAnchor, constant: 1)

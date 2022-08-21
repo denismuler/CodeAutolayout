@@ -7,12 +7,10 @@
 
 import UIKit
 
-class ScreenshotsCircleView: CircleView {
-    
+final class ScreenshotsCircleView: CircleView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configure()
     }
     
@@ -25,8 +23,7 @@ class ScreenshotsCircleView: CircleView {
         logoView.image = UIImage(named: "screenshots")
         logoView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(logoView)
-        
+        addSubview(logoView)
         NSLayoutConstraint.activate([
             logoView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             logoView.bottomAnchor.constraint(equalTo: circleView.bottomAnchor, constant: -70),
@@ -35,7 +32,8 @@ class ScreenshotsCircleView: CircleView {
         ])
         configureLabels()
     }
-    func configureLabels() {
+    
+   private func configureLabels() {
         circleTitle.text = "Duplicate photos"
         circleTitle.font = circleTitle.font.withSize(10)
         circleTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -72,6 +70,5 @@ class ScreenshotsCircleView: CircleView {
             circleDuplicateTitle.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             circleDuplicateTitle.topAnchor.constraint(equalTo: circleFilesTitle.bottomAnchor, constant: 1)
         ])
-        
     }
 }

@@ -7,11 +7,10 @@
 
 import UIKit
 
-class PhotosEmptyCircleView: EmptyCircleView {
+final class PhotosEmptyCircleView: EmptyCircleView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configure()
     }
     
@@ -24,8 +23,7 @@ class PhotosEmptyCircleView: EmptyCircleView {
         logoView.image = UIImage(named: "allPhotos")
         logoView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(logoView)
-        
+        addSubview(logoView)
         NSLayoutConstraint.activate([
             logoView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             logoView.bottomAnchor.constraint(equalTo: circleView.bottomAnchor, constant: -55),
@@ -36,7 +34,7 @@ class PhotosEmptyCircleView: EmptyCircleView {
         configureCircleLabel()
     }
     
-    func configureCircleLabel() {
+    private func configureCircleLabel() {
         circleLabel.text = "ALL PHOTOS"
         circleLabel.font = circleLabel.font.withSize(13)
         circleLabel.numberOfLines = 2

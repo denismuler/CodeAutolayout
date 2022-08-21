@@ -7,29 +7,34 @@
 
 import UIKit
 
-class CleanerViewController: UIViewController {
+final class CleanerViewController: UIViewController {
     
-    let button = UIButton()
+    private let button = UIButton()
     
-    let circle = PhotosCircleView()
-    let circle2 = ScreenshotsCircleView()
-    let circle3 = ContactsCircleView()
-    let emptyCircle = PhotosEmptyCircleView()
-    let emptyCircle2 = StorageEmptyCircleView()
-    let emptyCircle3 = VideosEmptyCircleView()
-    let largeCircle = LargeCircleView()
+    private let circle = PhotosCircleView()
+    private let circle2 = ScreenshotsCircleView()
+    private let circle3 = ContactsCircleView()
+    
+    private let emptyCircle = PhotosEmptyCircleView()
+    private let emptyCircle2 = StorageEmptyCircleView()
+    private let emptyCircle3 = VideosEmptyCircleView()
+    
+    private let largeCircle = LargeCircleView()
+    
+    lazy var gradient: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.type = .axial
+        gradient.colors = [
+            UIColor(red: 109/255, green: 112/255, blue: 195/255, alpha: 1).cgColor,
+            UIColor(red: 79/255, green: 81/255, blue: 166/255, alpha: 1).cgColor
+        ]
+        gradient.locations = [0, 1]
+        return gradient
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        gradient.frame = view.bounds
-        view.layer.addSublayer(gradient)
-        assignbackground()
-    
-        configureNavButton()
-        configureCircleButton()
-        configureEmptyCircleButton()
-        configureLargeCircle()
+        configureUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,25 +42,13 @@ class CleanerViewController: UIViewController {
         largeCircle.layer.cornerRadius = largeCircle.frame.width/2
     }
     
-    lazy var gradient: CAGradientLayer = {
-        let gradient = CAGradientLayer()
-        gradient.type = .axial
-        gradient.colors = [
-            UIColor(red: 109/255.0, green: 112/255.0, blue: 195/255.0, alpha: 1).cgColor,
-            UIColor(red: 79/255.0, green: 81/255.0, blue: 166/255.0, alpha: 1).cgColor
-        ]
-        gradient.locations = [0, 1]
-        return gradient
-    }()
-    
-    func configureNavButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapButton))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "CLEANER", style: .plain, target: self, action: #selector(didTapButton))
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-    }
-    
-    func configureCircleButton() {
+    private func configureUI() {
+        gradient.frame = view.bounds
+        view.layer.addSublayer(gradient)
+        assignbackground()
+        configureNavButton()
+                
+//MARK: - Circle Button
         view.addSubview(circle)
         circle.translatesAutoresizingMaskIntoConstraints = false
         
@@ -85,9 +78,8 @@ class CleanerViewController: UIViewController {
             circle3.widthAnchor.constraint(equalToConstant: 111),
             circle3.heightAnchor.constraint(equalToConstant: 111)
         ])
-    }
-    
-    func configureEmptyCircleButton() {
+        
+//MARK: - Empty Circle Button
         view.addSubview(emptyCircle)
         emptyCircle.translatesAutoresizingMaskIntoConstraints = false
         
@@ -117,9 +109,8 @@ class CleanerViewController: UIViewController {
             emptyCircle3.widthAnchor.constraint(equalToConstant: 111),
             emptyCircle3.heightAnchor.constraint(equalToConstant: 111)
         ])
-    }
-    
-    func configureLargeCircle() {
+        
+//MARK: - Large Circle Button
         view.addSubview(largeCircle)
         largeCircle.translatesAutoresizingMaskIntoConstraints = false
         largeCircle.layer.masksToBounds = true
@@ -141,12 +132,30 @@ class CleanerViewController: UIViewController {
         }
     }
     
+    private func configureNavButton() {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "cleaner"), for: .normal)
+        button.setTitle("CLEANER", for: .normal)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        let barButton = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = barButton
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(didTapButton))
+        let leftNavButton = navigationItem.leftBarButtonItem
+        leftNavButton?.tintColor = UIColor.white
+        leftNavButton?.image = UIImage(named: "backButton")
+    }
+    
     @objc func didTapButton() {
         let speedVC = SpeedViewController()
         navigationController?.pushViewController(speedVC, animated: true)        
     }
     
-    func assignbackground() {
+    private func assignbackground() {
         let background = UIImage(named: "bubbles.png")
         
         var imageView : UIImageView!

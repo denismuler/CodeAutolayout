@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StorageEmptyCircleView: EmptyCircleView {
+final class StorageEmptyCircleView: EmptyCircleView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +36,7 @@ class StorageEmptyCircleView: EmptyCircleView {
         configureCircleLabel()
     }
     
-    func configureCircleLabel() {
+    private func configureCircleLabel() {
         circleLabel.text = "SECRET STORAGE"
         circleLabel.font = circleLabel.font.withSize(13)
         circleLabel.numberOfLines = 2

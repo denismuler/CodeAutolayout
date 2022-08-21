@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContactsCircleView: CircleView {
+final class ContactsCircleView: CircleView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -35,7 +35,7 @@ class ContactsCircleView: CircleView {
         configureLabels()
     }
     
-    func configureLabels() {
+    private func configureLabels() {
         circleTitle.text = "Duplicate contacts"
         circleTitle.font = circleTitle.font.withSize(10)
         self.addSubview(circleTitle)

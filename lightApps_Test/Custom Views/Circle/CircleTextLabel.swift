@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CircleTextLabel: UILabel {
+final class CircleTextLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +26,7 @@ class CircleTextLabel: UILabel {
     }
     
     private func configure() {
-        textColor = UIColor(red: 100/255.0, green: 102/255.0, blue: 167/255.0, alpha: 1)
+        textColor = UIColor(red: 100/255, green: 102/255, blue: 167/255, alpha: 1)
         font = UIFont(name: "Roboto-Regular.ttf", size: 10)
         lineBreakMode = .byTruncatingTail
         translatesAutoresizingMaskIntoConstraints = false

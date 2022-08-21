@@ -7,26 +7,27 @@
 
 import UIKit
 
-class LargeCircleView: UIView {
+final class LargeCircleView: UIView {
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
         
-    var percentageTitle = CircleTextLabel(textAlignment: .center, fontSize: 50)
-    var storageTitle = CircleTextLabel(textAlignment: .center, fontSize: 18)
+    private var percentageTitle = CircleTextLabel(textAlignment: .center, fontSize: 50)
+    private var storageTitle = CircleTextLabel(textAlignment: .center, fontSize: 18)
     
-    var totalMemoryLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
-    var availibleLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
-    var trashSizeLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
+    private var totalMemoryLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
+    private var availibleLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
+    private var trashSizeLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
     
-    var flowHeightConstraint: NSLayoutConstraint?
-    var flowWidthConstraint: NSLayoutConstraint?
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configure()
         configureUI()
     }
     
-    func configureUI() {
-
+    private func configureUI() {
+        
         addSubview(storageTitle)
         storageTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -69,14 +70,10 @@ class LargeCircleView: UIView {
         ])
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     private func configure() {
         
         layer.borderWidth = 3
-        layer.backgroundColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 0.2).cgColor
+        layer.backgroundColor = UIColor(red: 209/255, green: 209/255, blue: 209/255, alpha: 0.2).cgColor
         layer.borderColor = UIColor.white.cgColor
         
         percentageTitle.text = "76%"
@@ -94,8 +91,8 @@ class LargeCircleView: UIView {
         configureStatsLabels()
     }
     
-    func configureStatsLabels() {
-        totalMemoryLabel.textColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 1)
+    private func configureStatsLabels() {
+        totalMemoryLabel.textColor = UIColor(red: 209/255, green: 209/255, blue: 209/255, alpha: 1)
 
         let strNumber: NSString = "Total memory: 128 GB" as NSString
         let range = (strNumber).range(of: "128 GB")
@@ -104,7 +101,7 @@ class LargeCircleView: UIView {
         totalMemoryLabel.attributedText = attribute
         totalMemoryLabel.font = totalMemoryLabel.font.withSize(16)
         
-        availibleLabel.textColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 1)
+        availibleLabel.textColor = UIColor(red: 209/255, green: 209/255, blue: 209/255, alpha: 1)
         
         let strNumber2: NSString = "Available: 24 GB" as NSString
         let range2 = (strNumber2).range(of: "24 GB")
@@ -113,7 +110,7 @@ class LargeCircleView: UIView {
         availibleLabel.attributedText = attribute2
         availibleLabel.font = availibleLabel.font.withSize(16)
 
-        trashSizeLabel.textColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 1)
+        trashSizeLabel.textColor = UIColor(red: 209/255, green: 209/255, blue: 209/255, alpha: 1)
         
         let strNumber3: NSString = "Trash size: 470 MB" as NSString
         let range3 = (strNumber3).range(of: "470 MB")

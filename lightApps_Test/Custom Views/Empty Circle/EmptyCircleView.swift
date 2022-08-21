@@ -27,11 +27,11 @@ class EmptyCircleView: UIView {
         circleView.layer.cornerRadius = circleView.frame.size.width/2
         circleView.backgroundColor = .white
         
-        self.addSubview(circleView)
+        addSubview(circleView)
         dropShadow()
     }
     
-    func dropShadow() {
+    private func dropShadow() {
         circleView.layer.shadowColor = UIColor.black.cgColor
         circleView.layer.shadowOpacity = 0.5
         circleView.layer.shadowOffset = .zero
@@ -52,6 +52,6 @@ class EmptyCircleView: UIView {
         innerShadow.shadowOpacity = 0.3
         innerShadow.shadowRadius = 5
         innerShadow.cornerRadius = circleView.frame.size.width/2
-        self.layer.addSublayer(innerShadow)
+        layer.addSublayer(innerShadow)
     }
 }

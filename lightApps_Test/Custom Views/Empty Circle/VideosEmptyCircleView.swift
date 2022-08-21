@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VideosEmptyCircleView: EmptyCircleView {
+final class VideosEmptyCircleView: EmptyCircleView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,7 +35,7 @@ class VideosEmptyCircleView: EmptyCircleView {
         configureCircleLabel()
     }
     
-    func configureCircleLabel() {
+    private func configureCircleLabel() {
         circleLabel.text = "ALL VIDEOS"
         circleLabel.font = circleLabel.font.withSize(13)
         circleLabel.numberOfLines = 2
