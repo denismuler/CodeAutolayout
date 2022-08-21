@@ -44,7 +44,6 @@ class VideosEmptyCircleView: EmptyCircleView {
         self.addSubview(circleLabel)
         
         NSLayoutConstraint.activate([
-            circleLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             circleLabel.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 8),
             circleLabel.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 27),
             circleLabel.trailingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: -25)

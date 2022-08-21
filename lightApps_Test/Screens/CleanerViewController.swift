@@ -25,11 +25,16 @@ class CleanerViewController: UIViewController {
         gradient.frame = view.bounds
         view.layer.addSublayer(gradient)
         assignbackground()
-        
+    
         configureNavButton()
         configureCircleButton()
         configureEmptyCircleButton()
         configureLargeCircle()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        largeCircle.layer.cornerRadius = largeCircle.frame.width/2
     }
     
     lazy var gradient: CAGradientLayer = {
@@ -46,6 +51,8 @@ class CleanerViewController: UIViewController {
     func configureNavButton() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapButton))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "CLEANER", style: .plain, target: self, action: #selector(didTapButton))
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     func configureCircleButton() {
@@ -110,28 +117,28 @@ class CleanerViewController: UIViewController {
             emptyCircle3.widthAnchor.constraint(equalToConstant: 111),
             emptyCircle3.heightAnchor.constraint(equalToConstant: 111)
         ])
-        
     }
     
     func configureLargeCircle() {
         view.addSubview(largeCircle)
         largeCircle.translatesAutoresizingMaskIntoConstraints = false
-//        let aspectRatio: CGFloat = 9 / 16
-       
+        largeCircle.layer.masksToBounds = true
+            
+        if DeviceTypes.isiPhone8Standard {
         NSLayoutConstraint.activate([
-//            largeCircle.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: aspectRatio),
-//            largeCircle.topAnchor.constraint(equalTo: view.topAnchor, constant: 82),
-//            largeCircle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 82),
-//            largeCircle.heightAnchor.constraint(equalTo: view.widthAnchor,
-//                                                multiplier: aspectRatio)
-//            largeCircle.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            largeCircle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.55),
+            largeCircle.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.55),
             largeCircle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            largeCircle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 88),
-            largeCircle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -88),
-            largeCircle.bottomAnchor.constraint(equalTo: circle2.topAnchor, constant: -230)
-            
-            
+            largeCircle.bottomAnchor.constraint(equalTo: circle2.topAnchor, constant: -25)
         ])
+        } else {
+            NSLayoutConstraint.activate([
+                largeCircle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+                largeCircle.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+                largeCircle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                largeCircle.bottomAnchor.constraint(equalTo: circle2.topAnchor, constant: -25)
+            ])
+        }
     }
     
     @objc func didTapButton() {

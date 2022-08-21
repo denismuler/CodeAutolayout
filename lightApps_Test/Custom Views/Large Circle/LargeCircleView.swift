@@ -1,5 +1,5 @@
 //
-//  LargeCircleView.swift
+//  swift
 //  lightApps_Test
 //
 //  Created by Georgie Muler on 17.08.2022.
@@ -8,19 +8,13 @@
 import UIKit
 
 class LargeCircleView: UIView {
-    
-    var largeCircleView = UIView()
-    
+        
     var percentageTitle = CircleTextLabel(textAlignment: .center, fontSize: 50)
     var storageTitle = CircleTextLabel(textAlignment: .center, fontSize: 18)
     
-    var statsLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
-    var statsLabel2 = CircleTextLabel(textAlignment: .center, fontSize: 11)
-    var statsLabel3 = CircleTextLabel(textAlignment: .center, fontSize: 11)
-    
-    var statsResultsLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
-    var statsResultsLabel2 = CircleTextLabel(textAlignment: .center, fontSize: 11)
-    var statsResultsLabel3 = CircleTextLabel(textAlignment: .center, fontSize: 11)
+    var totalMemoryLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
+    var availibleLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
+    var trashSizeLabel = CircleTextLabel(textAlignment: .center, fontSize: 11)
     
     var flowHeightConstraint: NSLayoutConstraint?
     var flowWidthConstraint: NSLayoutConstraint?
@@ -28,6 +22,51 @@ class LargeCircleView: UIView {
         super.init(frame: frame)
         
         configure()
+        configureUI()
+    }
+    
+    func configureUI() {
+
+        addSubview(storageTitle)
+        storageTitle.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            storageTitle.topAnchor.constraint(equalTo: topAnchor, constant: 30),
+            storageTitle.heightAnchor.constraint(equalToConstant: 24),
+            storageTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            storageTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35),
+        ])
+
+        addSubview(percentageTitle)
+        percentageTitle.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            percentageTitle.topAnchor.constraint(equalTo: storageTitle.bottomAnchor, constant: 5),
+            percentageTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            percentageTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+        ])
+        
+        addSubview(totalMemoryLabel)
+        totalMemoryLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            totalMemoryLabel.topAnchor.constraint(equalTo: percentageTitle.bottomAnchor),
+            totalMemoryLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            totalMemoryLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+        ])
+        
+        addSubview(availibleLabel)
+        availibleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            availibleLabel.topAnchor.constraint(equalTo: totalMemoryLabel.bottomAnchor, constant: 5),
+            availibleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            availibleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+        ])
+        
+        addSubview(trashSizeLabel)
+        trashSizeLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            trashSizeLabel.topAnchor.constraint(equalTo: availibleLabel.bottomAnchor, constant: 5),
+            trashSizeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            trashSizeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+        ])
     }
     
     required init?(coder: NSCoder) {
@@ -36,109 +75,51 @@ class LargeCircleView: UIView {
     
     private func configure() {
         
-        largeCircleView = UIView (frame: CGRect(x: 0, y: 0, width: 199, height: 199))
-        largeCircleView.layer.cornerRadius = largeCircleView.frame.size.width/2
-        largeCircleView.backgroundColor = UIColor(red: 117/255.0, green: 120/255.0, blue: 186/255.0, alpha: 0.7)
-        largeCircleView.layer.borderWidth = 3
-        largeCircleView.layer.borderColor = UIColor.white.cgColor
-        
-//        flowHeightConstraint = largeCircleView.heightAnchor.constraint(equalToConstant: 199)
-//        flowWidthConstraint = largeCircleView.widthAnchor.constraint(equalToConstant: 199)
-//
-//        flowWidthConstraint?.isActive = true
-//        flowHeightConstraint?.isActive = true
-        
-        self.addSubview(largeCircleView)
+        layer.borderWidth = 3
+        layer.backgroundColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 0.2).cgColor
+        layer.borderColor = UIColor.white.cgColor
         
         percentageTitle.text = "76%"
-        percentageTitle.font = percentageTitle.font.withSize(50)
+        if DeviceTypes.isiPhone8Standard {
+            percentageTitle.font = .systemFont(ofSize: 45)
+        } else {
+        percentageTitle.font = .systemFont(ofSize: 100)
+        }
         percentageTitle.textColor = .white
-        
-        self.addSubview(percentageTitle)
-        
-        NSLayoutConstraint.activate([
-            percentageTitle.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 50),
-            percentageTitle.leadingAnchor.constraint(equalTo: largeCircleView.leadingAnchor, constant: 53),
-            percentageTitle.trailingAnchor.constraint(equalTo: largeCircleView.trailingAnchor, constant: -40)
-        ])
-        
+
         storageTitle.text = "Your Storage"
-        storageTitle.font = storageTitle.font.withSize(18)
+        storageTitle.font = .systemFont(ofSize: 22)
         storageTitle.textColor = .white
-        
-        self.addSubview(storageTitle)
-        
-        NSLayoutConstraint.activate([
-            storageTitle.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 20),
-            storageTitle.leadingAnchor.constraint(equalTo: largeCircleView.leadingAnchor, constant: 46),
-            storageTitle.trailingAnchor.constraint(equalTo: largeCircleView.trailingAnchor, constant: -45)
-        ])
-        
+
         configureStatsLabels()
-        configureStatsResultsLabels()
     }
     
     func configureStatsLabels() {
-        statsLabel.text = "Total memory:"
-        statsLabel.font = statsLabel.font.withSize(11)
-        statsLabel.textColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 1)
-        self.addSubview(statsLabel)
+        totalMemoryLabel.textColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 1)
+
+        let strNumber: NSString = "Total memory: 128 GB" as NSString
+        let range = (strNumber).range(of: "128 GB")
+        let attribute = NSMutableAttributedString.init(string: strNumber as String)
+        attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white , range: range)
+        totalMemoryLabel.attributedText = attribute
+        totalMemoryLabel.font = totalMemoryLabel.font.withSize(16)
         
-        NSLayoutConstraint.activate([
-            statsLabel.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 117),
-            statsLabel.trailingAnchor.constraint(equalTo: largeCircleView.trailingAnchor, constant: -86)
-        ])
+        availibleLabel.textColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 1)
         
-        statsLabel2.text = "Available:"
-        statsLabel2.font = statsLabel.font.withSize(11)
-        statsLabel2.textColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 1)
-        self.addSubview(statsLabel2)
+        let strNumber2: NSString = "Available: 24 GB" as NSString
+        let range2 = (strNumber2).range(of: "24 GB")
+        let attribute2 = NSMutableAttributedString.init(string: strNumber2 as String)
+        attribute2.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white , range: range2)
+        availibleLabel.attributedText = attribute2
+        availibleLabel.font = availibleLabel.font.withSize(16)
+
+        trashSizeLabel.textColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 1)
         
-        NSLayoutConstraint.activate([
-            statsLabel2.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 135),
-            statsLabel2.trailingAnchor.constraint(equalTo: largeCircleView.trailingAnchor, constant: -86)
-        ])
-        
-        statsLabel3.text = "Trash size:"
-        statsLabel3.font = statsLabel.font.withSize(11)
-        statsLabel3.textColor = UIColor(red: 209/255.0, green: 209/255.0, blue: 209/255.0, alpha: 1)
-        self.addSubview(statsLabel3)
-        
-        NSLayoutConstraint.activate([
-            statsLabel3.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 153),
-            statsLabel3.trailingAnchor.constraint(equalTo: largeCircleView.trailingAnchor, constant: -86)
-        ])
-    }
-    
-    func configureStatsResultsLabels() {
-        statsResultsLabel.text = "128 GB"
-        statsResultsLabel.font = statsResultsLabel.font.withSize(11)
-        statsResultsLabel.textColor = .white
-        self.addSubview(statsResultsLabel)
-        
-        NSLayoutConstraint.activate([
-            statsResultsLabel.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 117),
-            statsResultsLabel.leftAnchor.constraint(equalTo: statsLabel.rightAnchor, constant: 1)
-        ])
-        
-        statsResultsLabel2.text = "24 GB"
-        statsResultsLabel2.font = statsResultsLabel2.font.withSize(11)
-        statsResultsLabel2.textColor = .white
-        self.addSubview(statsResultsLabel2)
-        
-        NSLayoutConstraint.activate([
-            statsResultsLabel2.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 135),
-            statsResultsLabel2.leftAnchor.constraint(equalTo: statsLabel2.rightAnchor, constant: 1)
-        ])
-        
-        statsResultsLabel3.text = "470 MB"
-        statsResultsLabel3.font = statsLabel.font.withSize(11)
-        statsResultsLabel3.textColor = .white
-        self.addSubview(statsResultsLabel3)
-        
-        NSLayoutConstraint.activate([
-            statsResultsLabel3.topAnchor.constraint(equalTo: largeCircleView.topAnchor, constant: 153),
-            statsResultsLabel3.leftAnchor.constraint(equalTo: statsLabel3.rightAnchor, constant: 1)
-        ])
+        let strNumber3: NSString = "Trash size: 470 MB" as NSString
+        let range3 = (strNumber3).range(of: "470 MB")
+        let attribute3 = NSMutableAttributedString.init(string: strNumber3 as String)
+        attribute3.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white , range: range3)
+        trashSizeLabel.attributedText = attribute3
+        trashSizeLabel.font = trashSizeLabel.font.withSize(16)
     }
 }

@@ -56,7 +56,6 @@ class PhotosCircleView: CircleView {
         self.addSubview(circleFilesTitle)
         
         NSLayoutConstraint.activate([
-            circleFilesTitle.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             circleFilesTitle.bottomAnchor.constraint(equalTo: circleView.bottomAnchor, constant: -20),
             circleFilesTitle.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 31),
             circleFilesTitle.trailingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: -29)
